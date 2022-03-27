@@ -37,31 +37,34 @@
             <img class="log" src="../form/img/Wplay-Logo-blanco.png" />
         </div>
         <div class="frm">
-            <form id="registerForm" name="registerForm">
+            <form id="registerForm" name="registerForm" [formGroup]="form">
 
                 <div class="mb-3">
-                    <input type="number" class="form-control" name="identity" id="inputIdentity" placeholder="* Cédula de Ciudadanía" required>
+                    <input formControlName="identity" type="number" class="form-control" name="identity" id="inputIdentity" placeholder="* Cédula de Ciudadanía" required>
+
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="* Nombres" required>
+                    <input formControlName="username" type="text" class="form-control" name="firstName" id="firstName" placeholder="* Nombres">
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="* Apellidos" required>
+                    <input formControlName="lastname" type="text" class="form-control" name="lastname" id="lastname" placeholder="* Apellidos" required>
                 </div>
 
                 <div class="mb-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="* Correo electrónico" required>
+                    <input formControlName="email" type="email" class="form-control" name="email" id="email" placeholder="* Correo electrónico" required>
+
                 </div>
 
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="* Celular">
+                    <input formControlName="mobile" type="text" class="form-control" name="mobile" id="mobile" placeholder="* Celular">
+                    <div class="error-message" *ngIf="GetForm['mobile'].errors && (GetForm['mobile'].dirty && GetForm['mobile'].touched)"><label for="">Por favor ingrese un número de celular valido</label></div>
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button">Registrar</button>
+                    <button class="btn btn-primary" type="button" (click)="registro()">Registrar</button>
 
                 </div>
             </form>
