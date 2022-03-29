@@ -37,15 +37,15 @@
             <img class="log" src="../form/img/Wplay-Logo-blanco.png" />
         </div>
         <div class="frm">
-            <form id="registerForm" name="registerForm" [formGroup]="form">
+            <form id="registerForm" name="registerForm" [formGroup]="form" (ngSubmit)="enviar(form.value)">
 
                 <div class="mb-3">
-                    <input formControlName="identity" type="number" class="form-control" name="identity" id="inputIdentity" placeholder="* Cédula de Ciudadanía" required>
+                    <input formControlName="identity" type="text" class="form-control" name="identity" id="identity" placeholder="* Cédula de Ciudadanía" required>
 
                 </div>
 
                 <div class="mb-3">
-                    <input formControlName="username" type="text" class="form-control" name="firstName" id="firstName" placeholder="* Nombres">
+                    <input formControlName="username" type="text" class="form-control" name="username" id="username" placeholder="* Nombres">
                 </div>
 
                 <div class="mb-3">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input formControlName="email" type="email" class="form-control" name="email" id="email" placeholder="* Correo electrónico" required>
+                    <input formControlName="email" type="text" class="form-control" name="email" id="email" placeholder="* Correo electrónico" required>
 
                 </div>
 
@@ -63,8 +63,26 @@
                     <div class="error-message" *ngIf="GetForm['mobile'].errors && (GetForm['mobile'].dirty && GetForm['mobile'].touched)"><label for="">Por favor ingrese un número de celular valido</label></div>
                 </div>
 
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label text-white" for="flexCheckDefault">
+                       Soy mayor de 18 años y Confirmo que he leído y estoy de acuerdo con los
+                        <a class="text-white fw-bold" href="https://www.wplay.co/mas/ayuda/terminos-y-condiciones/" target="_blank" >términos y condiciones</a>.
+                    </label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        <a class="text-white fw-bold"  onclick="alert('Aceptación Tratamiento de Datos Personales >> La autorización suministrada en el presente formulario faculta a Wplay.co para que dé a sus datos aquí recopilados el tratamiento señalado en la “Política de Privacidad para el Tratamiento de Datos Personales” de Wplay.co, el cual incluye entre otras, el envío de información promocional, así como la invitación a eventos. El titular de los datos podrá en cualquier momento solicitar que la información sea modificada, actualizada o retirada de las bases de datos de Wplay.co escribiendo a este correo: requerimientoscoljuegos@wplay.co ')">Ley de Protección de Datos Personales</a>
+                    </label>
+                </div>
+
+
+
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button" (click)="registro()">Registrar</button>
+                    <button [disabled]="GetForm['mobile'].errors" class="btn btn-primary" type="submit" (click)="registro()">Registrar</button>
 
                 </div>
             </form>

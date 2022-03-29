@@ -35,7 +35,8 @@
                             "node_modules/@popperjs/core/dist/umd/popper.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "src/assets/js/init.js",
-                            "src/assets/js/functions.js"
+                            "src/assets/js/functions.js",
+                            "src/assets/js/angular-recaptcha.js"
                         ]
                     },
                     "configurations": {
@@ -107,7 +108,8 @@
                             "node_modules/@popperjs/core/dist/umd/popper.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "src/assets/js/init.js",
-                            "src/assets/js/functions.js"
+                            "src/assets/js/functions.js",
+                            "src/assets/js/angular-recaptcha.js"
                         ]
                     }
                 }
